@@ -6,7 +6,7 @@ const Header = ({loading}) => {
     return (
       <div className="container-header">
         <h1>Booking Time</h1>
-        <div className="center">
+        <div className="align-self-center">
             <a href="#">
                 <i className="fa fa-user-circle fa-2x"></i>
                 Login
