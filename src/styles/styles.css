@@ -28,8 +28,6 @@ a.active {
   grid-gap: 10px;
 }
 
-.center { align-self: center; text-align: center;}
-
 .btn.btn-basic {
   color: #fff;
   background-color: #FF847C;
