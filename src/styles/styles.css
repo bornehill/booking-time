@@ -1,0 +1,42 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  background-color: #FFE1B9;
+}
+
+#app{
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #4d4d4d;
+  background-color: #FFE1B9;
+}
+
+a.active {
+  color: orange;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #99B898;
+  color: white;
+  padding: 10px
+}
+
+.container-centre {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+}
+
+.center { align-self: center; text-align: center;}
+
+.btn.btn-basic {
+  color: #fff;
+  background-color: #FF847C;
+  border-color: #FF847C;
+}
+
+.centre-tile{
+  padding: 10px;
+  margin: 10px;
+}
