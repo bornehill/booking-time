@@ -4,16 +4,17 @@ import LoadingDots from './LoadingDots';
 
 const Header = ({loading}) => {
     return (
-      <div className="container-header">
-        <h1>Booking Time</h1>
-        <div className="align-self-center">
-            <a href="#">
-                <i className="fa fa-user-circle fa-2x"></i>
-                Login
-            </a>
-        </div>
+      <header className="flex items-center justify-between p-4 bg-light">
+        <p className="font-emphasis">
+          <span className="text-xl text-flame-600">Booking</span>
+          <span className="font-light text-2xl text-onyx-700">Time</span>
+        </p>
+        <a href="#" className="btn btn-icon btn-secondary btn-outline rounded-full">
+          <i className="fa fa-user-circle mr-2"></i>
+          <span>Login</span>
+        </a>
         {loading && <LoadingDots interval={100} dots={20}/>}
-      </div>
+      </header>
     );
 };
 

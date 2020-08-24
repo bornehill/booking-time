@@ -1,40 +1,63 @@
-body {
-  font-family: Helvetica, Arial, sans-serif;
-  margin: 0 auto;
-  background-color: #FFE1B9;
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+/* Custom components */
+
+/* Secondary */
+.btn.btn-secondary {
+  @apply border-onyx-700 bg-onyx-700 text-white;
 }
 
-#app{
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #4d4d4d;
-  background-color: #FFE1B9;
+.btn.btn-secondary.btn-outline {
+  @apply text-onyx-700;
 }
 
-a.active {
-  color: orange;
+.btn {
+  @apply text-lg font-normal font-emphasis py-1 px-4 rounded-sm;
 }
 
-.container-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: #99B898;
-  color: white;
-  padding: 10px
+.btn:hover {
+  @apply shadow-md;
 }
 
-.container-centre {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 10px;
+.btn.btn-icon {
+  @apply inline-flex items-center justify-between;
 }
 
-.btn.btn-basic {
-  color: #fff;
-  background-color: #FF847C;
-  border-color: #FF847C;
+.btn.btn-outline {
+  @apply border-2 bg-opacity-0;
 }
 
-.centre-tile{
-  padding: 10px;
-  margin: 10px;
+
+
+
+/* 
+.btn.btn-outline {
+  @apply border-2 border-solid bg-opacity-0;
 }
+
+.btn.btn-primary {
+  @apply bg-blue-700 text-white;
+}
+
+.btn.btn-primary-outline {
+  @apply bg-blue-800 text-white;
+}
+
+
+.btn.btn-secondary {
+  @apply bg-gray-700 text-white;
+} */
+
+
+.card {
+  @apply rounded-sm shadow-md
+}
+
+.card-white {
+  @apply bg-white text-gray-800;
+}
+
+
+@import "tailwindcss/utilities";
