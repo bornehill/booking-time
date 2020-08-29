@@ -6,6 +6,10 @@ export function loadCentresSuccess(centres){
     return { type: types.LOAD_CENTRES_SUCCESS, centres};
 }
 
+export function loadCentreScheduleSuccess(centreSchedule){
+  return { type: types.LOAD_CENTRE_SCHEDULE_SUCCESS, centreSchedule};
+}
+
 export function loadCentres() {
     return function(dispatch) {
         dispatch(beginApiCall());
@@ -15,4 +19,15 @@ export function loadCentres() {
             throw(error);
         });
     };
+}
+
+export function loadCentreSchedule(centre) {
+  return function(dispatch) {
+      dispatch(beginApiCall());
+      return centresAPI.getCentreSchedule(centre).then(centreSchedule => {
+          dispatch(loadCentreScheduleSuccess(centreSchedule));
+      }).catch(error => {
+          throw(error);
+      });
+  };
 }
