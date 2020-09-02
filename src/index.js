@@ -12,6 +12,8 @@ import './styles/styles.css';
 import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 import '../node_modules/@fortawesome/fontawesome-free/js/all.min.js';
 // import '../node_modules/toastr/build/toastr.min.css';
+import { configureBookingTimeBackend } from './api/MockCentresApi';
+configureBookingTimeBackend();
 
 const store = configureStore();
 store.dispatch(loadCentres());

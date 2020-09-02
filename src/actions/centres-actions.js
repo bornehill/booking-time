@@ -1,5 +1,5 @@
 import * as types from './actions-types';
-import centresAPI from '../api/MockCentresApi';
+import {centreService} from '../service/centre-service';
 import {beginApiCall} from './api-status-actions';
 
 export function loadCentresSuccess(centres){
@@ -13,7 +13,7 @@ export function loadCentreScheduleSuccess(centreSchedule){
 export function loadCentres() {
     return function(dispatch) {
         dispatch(beginApiCall());
-        return centresAPI.getAllCentres().then(centres => {
+        return centreService.getAllCentres().then(centres => {
             dispatch(loadCentresSuccess(centres));
         }).catch(error => {
             throw(error);
@@ -24,7 +24,7 @@ export function loadCentres() {
 export function loadCentreSchedule(centre) {
   return function(dispatch) {
       dispatch(beginApiCall());
-      return centresAPI.getCentreSchedule(centre).then(centreSchedule => {
+      return centreService.getCentreSchedule(centre).then(centreSchedule => {
           dispatch(loadCentreScheduleSuccess(centreSchedule));
       }).catch(error => {
           throw(error);

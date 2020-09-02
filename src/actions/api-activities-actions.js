@@ -1,5 +1,5 @@
 import * as types from './actions-types';
-import centresAPI from '../api/MockCentresApi';
+import {centreService} from '../service/centre-service';
 import {beginApiCall} from './api-status-actions';
 
 export function loadActivitiesSuccess(activities){
@@ -9,7 +9,7 @@ export function loadActivitiesSuccess(activities){
 export function loadActivities() {
     return function(dispatch) {
         dispatch(beginApiCall());
-        return centresAPI.getActivities().then(activities => {
+        return centreService.getActivities().then(activities => {
             dispatch(loadActivitiesSuccess(activities));
         }).catch(error => {
             throw(error);
