@@ -3,11 +3,12 @@ import TextInput from '../common/TextInput';
 
 const LoginForm = ({ user, onLogin, onChange, loading, errors }) => {
     return (
-        <form className="w-1/5 h-64 border border-onyx-700 rounded m-10 p-4">
+        <form className="max-w-sm mx-auto border border-onyx-700 rounded m-10 p-4">
             <h1 className="text-center">BookingTime Login</h1>
             <TextInput
                 name="email"
                 label="Email"
+                type="text"
                 value={user.email}
                 onChange={onChange}
                 error={errors.email}
@@ -17,6 +18,7 @@ const LoginForm = ({ user, onLogin, onChange, loading, errors }) => {
             <TextInput
                 name="password"
                 label="Password"
+                type="password"
                 value={user.password}
                 onChange={onChange}
                 error={errors.password}

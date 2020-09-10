@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const TextInput = ({ name, label, onChange, placeholder, value, error, classInput, classLabel }) => {
+const TextInput = ({ name, label, onChange, placeholder, value, error, classInput, classLabel, type }) => {
     let wrapperClass = 'form-group m-2';
     classInput = `form-control ${classInput}`;
     if(error && error.length >0)
@@ -13,7 +13,7 @@ const TextInput = ({ name, label, onChange, placeholder, value, error, classInpu
             <label className={classLabel} htmlFor={name}>{label}</label>
             <div className="field">
                 <input
-                    type="text"
+                    type={type}
                     name={name}
                     className={classInput}
                     placeholder={placeholder}
@@ -33,7 +33,8 @@ TextInput.propTypes = {
     value: PropTypes.string,
     error: PropTypes.string,
     classInput: PropTypes.string,
-    classLabel: PropTypes.string
+    classLabel: PropTypes.string,
+    type: PropTypes.string.isRequired
 };
 
 export default TextInput;

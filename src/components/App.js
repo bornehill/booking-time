@@ -7,7 +7,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Header loading={this.props.loading} />
+                <Header loading={this.props.loading} user={this.props.user} />
                 {this.props.children}
                 <Footer/>
             </div>
@@ -17,12 +17,14 @@ class App extends React.Component {
 
 App.propTypes = {
     children: PropTypes.object.isRequired,
-    loading: PropTypes.bool.isRequired
+    loading: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps){
     return {
-        loading: state.apiCallsInProgress > 0
+        loading: state.apiCallsInProgress > 0,
+        user: state.user
     };
 }
 

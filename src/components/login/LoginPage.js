@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react';
 import { connect } from 'react-redux';
-import {Link} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 import { bindActionCreators } from 'redux';
 import LoginForm from './LoginForm';
+import * as userActions from '../../actions/user-actions';
 
 class LoginPage extends React.Component {
   constructor(props, context){
@@ -43,6 +44,10 @@ class LoginPage extends React.Component {
     return formIsValid;
   }
 
+  redirect(){
+    browserHistory.push('/');
+  }
+
   onLogin(event){
     event.preventDefault();
 
@@ -50,13 +55,12 @@ class LoginPage extends React.Component {
         return;
     }
 
-    // this.setState({loging: true});
-    // this.props.actions.saveCourse(this.state.course)
-    // .then(() => this.redirect())
-    // .catch(error => {
-    //     toastr.error(error);
-    //     this.setState({loging: false});
-    // });
+    this.setState({loging: true});
+    this.props.actions.loginUser(this.state.user)
+    .then(() => this.redirect())
+    .catch(error => {
+        this.setState({loging: false});
+    });
   }
 
   render() {
@@ -85,14 +89,14 @@ function mapStateToProps(state, ownProps)
   }
 
   return {
-    user: state.user
+    user: user
   };
 }
 
 function mapDispatchToProps(dispatch)
 {
   return {
-      actions: {}//bindActionCreators(centresActions, dispatch)
+      actions: bindActionCreators(userActions, dispatch)
   };
 }
 

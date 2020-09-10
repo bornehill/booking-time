@@ -22,7 +22,7 @@ class LeisureCentreSchedulePage extends React.Component {
       return (
           <main>
             <section className="max-w-screen-xl mx-auto">
-              <div className="grid grid-cols-3">
+              <div className="max-w-md mx-auto">
                 <LeisureCentreTile  key={centre.id} centre={centre} showButton={false} customClass="col-start-2"/>
               </div>
             </section>

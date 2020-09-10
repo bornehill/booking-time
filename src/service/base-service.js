@@ -19,6 +19,24 @@ class BaseService {
     return fetch(`${config.apiUrl}${endpoint ? `/${endpoint}` : ''}`, requestOptions).then(handleResponse);
   }
 
+  static post(
+    endpoint = '',
+    data
+  ) {
+    const requestOptions = {
+        method: 'POST',
+        credentials: 'include',
+        headers: authHeader()
+    };
+
+    if(data)
+    {
+      requestOptions.body = JSON.stringify(data);
+    }
+
+    return fetch(`${config.apiUrl}${endpoint ? `/${endpoint}` : ''}`, requestOptions).then(handleResponse);
+  }
+
   static logout() {
     localStorage.removeItem('user');
   }

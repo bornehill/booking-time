@@ -1,4 +1,16 @@
-const users = [];
+import config from 'config';
+import jwt from 'jsonwebtoken';
+
+const users = [
+  {
+    id: 1,
+    email: 'bornehill@hotmail.com',
+    password: 'b0rn3',
+    firstName: 'Osborne',
+    lastName: 'Hill',
+    userName: 'bornehill'
+  }
+];
 
 const centres = [
   {
@@ -179,7 +191,7 @@ export function configureBookingTimeBackend() {
           setTimeout(() => {
 
               // authenticate
-              if (url.endsWith('/users/authenticate') && opts.method === 'POST') {
+              if (url.endsWith('/auth') && opts.method === 'POST') {
                   // get parameters from post request
                   let params = JSON.parse(opts.body);
 
@@ -193,10 +205,10 @@ export function configureBookingTimeBackend() {
                       let user = filteredUsers[0];
                       let responseJson = {
                           id: user.id,
-                          username: user.username,
+                          userName: user.userName,
                           firstName: user.firstName,
                           lastName: user.lastName,
-                          token: 'fake-jwt-token'
+                          token: jwt.sign({ user }, config.secret, { expiresIn: '1h'})
                       };
                       resolve({ ok: true, json: () => Promise.resolve(responseJson) });
                   } else {

@@ -25,7 +25,9 @@ const ScheduleBoard = ({schedule, activities}) => {
             {Object.keys(WeekDays).map((day, index) =>
               <td className="border border-onyx-700 px-4 py-2" key={scheduleKey+'-'+day}>
                 {scheduleTable[scheduleKey].filter(c => c.weekDay == index).map(t =>
-                    <div className="flex justify-center" key={t.time+'.'+t.weekDay}><span>{t.time} - {activities.find(a => a.id == t.activityId).name}</span></div>
+                    <div className="flex justify-center" key={t.time+'.'+t.weekDay}>
+                      <span>{t.time} - {activities.find(a => a.id == t.activityId).name}</span>
+                    </div>
                 )}
               </td>
             )}

@@ -1,5 +1,6 @@
 export default {
   centres: [],
   activities: [],
-  apiCallsInProgress: 0
+  apiCallsInProgress: 0,
+  user: {}
 };
